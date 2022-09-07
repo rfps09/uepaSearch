@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
-use App\Http\Controllers\professor;
+use App\Http\Controllers\Professor;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +15,16 @@ use App\Http\Controllers\professor;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [Professor::class, 'getProfessores'])->name('home');
 
 Route::get('/cadastrar', function () {
     return view('cadastrar');
 })->name('cadastrar');
 
-Route::get('/editar', function () {
-    return view('editar');
-})->name('editar');
+Route::get('/editar/{id}', [Professor::class, 'getProfessor'])->name('editar');
 
 Route::get('/deletar', function () {
     return view('deletar');
 })->name('deletar');
 
-Route::get('/professor/create', [professor::class, 'create']);
-
-Route::get('/professores', [professor::class, 'getProfessores']);
+Route::post('/professor/create', [Professor::class, 'create'])->name('create');

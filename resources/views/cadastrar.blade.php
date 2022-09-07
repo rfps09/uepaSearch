@@ -30,18 +30,22 @@
         </div>
         <div class="row justify-content-md-center pb-5 px-5">
             <div class="col col-lg-5">
-                <form>
+                <form action="{{ route('create') }}" method="POST">
+                    @csrf
+                    <label for="matricula" class="form-label">Matrícula</label>
+                    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required>
+
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Nome" required>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
 
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="text" class="form-control" id="email" placeholder="E-mail" required>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required>
 
                     <label for="telefone" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="telefone" placeholder="Telefone" required>
+                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
                     
                     <label for="especialidade" class="form-label">Especialidade</label>
-                    <input type="text" class="form-control" id="especialidade" placeholder="Especialidade ou área de interesse" required>
+                    <input type="text" class="form-control" id="especialidade" name="especialidade" placeholder="Especialidade ou área de interesse" required>
 
                     <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Cadastrar</button>
                 </form>
