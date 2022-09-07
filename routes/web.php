@@ -21,10 +21,12 @@ Route::get('/cadastrar', function () {
     return view('cadastrar');
 })->name('cadastrar');
 
+Route::post('/professor/create', [Professor::class, 'create'])->name('create');
+
 Route::get('/editar/{id}', [Professor::class, 'getProfessor'])->name('editar');
 
-Route::get('/deletar', function () {
-    return view('deletar');
-})->name('deletar');
+Route::post('/editarProfessor/{id}', [Professor::class, 'editar'])->name('editarProfessor');
 
-Route::post('/professor/create', [Professor::class, 'create'])->name('create');
+Route::get('/deletarProfessor/{id}', [Professor::class, 'deletarProfessor'])->name('deletarProfessor');
+
+Route::get('/deletar/{id}', [Professor::class, 'deletar'])->name('deletar');

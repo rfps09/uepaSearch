@@ -50,7 +50,7 @@
                     </div>
                     <div class="d-flex align-items-center">
                         <a href="{{route('editar', ['id' => $professor->id])}}" class="p-2"><i class="bi bi-pencil-square"></i></a>
-                        <a href="{{route('deletar')}}" class="p-2"><i class="bi bi-trash3-fill"></i></a>
+                        <a href="{{route('deletar', ['id' => $professor->id])}}" class="p-2"><i class="bi bi-trash3-fill"></i></a>
                     </div>
                 </div>
             </div>

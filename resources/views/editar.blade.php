@@ -30,22 +30,19 @@
         </div>
         <div class="row justify-content-md-center pb-5 px-5">
             <div class="col col-lg-5">
-                <form action="{{ route('create') }}" method="POST">
+                <form action="{{ route('editarProfessor', ['id' => $professor->id]) }}" method="POST">
                     @csrf
-                    <label for="matricula" class="form-label">Matrícula</label>
-                    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" value="{{ $professor->id }}" required>
-
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Nome" value="{{ $professor->name }}" required>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="{{ $professor->name }}" required>
 
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="text" class="form-control" id="email" placeholder="E-mail" value="{{ $professor->email }}" required>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" value="{{ $professor->email }}" required>
 
                     <label for="telefone" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="telefone" placeholder="Telefone" value="{{ $professor->phone }}" required>
+                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" value="{{ $professor->phone }}" required>
                     
                     <label for="especialidade" class="form-label">Especialidade</label>
-                    <input type="text" class="form-control" id="especialidade" placeholder="Especialidade ou área de interesse" value="{{ $professor->especialidade }}" required>
+                    <input type="text" class="form-control" id="especialidade" name="especialidade" placeholder="Especialidade ou área de interesse" value="{{ $professor->especialidade }}" required>
 
                     <button class="w-100 btn btn-primary btn-lg mt-3" type="submit">Salvar alterações</button>
                 </form>

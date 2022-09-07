@@ -20,14 +20,14 @@
     <div class="container">
         <div class="d-flex justify-content-md-center align-items-center vh-100">
             <div class="col col-lg-4 p-4 bg-light rounded">
-                <h4 class="text-danger">Tem certeza que deseja remover o professor ”Anderson”?</h4>
+                <h4 class="text-danger">Tem certeza que deseja remover o professor ”{{$professor->name}}”?</h4>
                 <p>Esta ação não poderá ser desfeita!</p>
                 <div class="d-flex justify-content-end">
                     <div class="px-2">
                         <a href="{{ url()->previous() }}" type="button" class="btn btn-light">Cancelar</a>
                     </div>
                     <div>
-                        <a href="{{route('deletar')}}" type="button" class="btn btn-danger">Deletar</a>
+                        <a href="{{route('deletarProfessor', ['id' => $professor->id])}}" type="button" class="btn btn-danger">Deletar</a>
                     </div>
                 </div>
             </div>
