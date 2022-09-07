@@ -32,9 +32,6 @@
             <div class="col col-lg-5">
                 <form action="{{ route('create') }}" method="POST">
                     @csrf
-                    <label for="matricula" class="form-label">Matrícula</label>
-                    <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required>
-
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
 

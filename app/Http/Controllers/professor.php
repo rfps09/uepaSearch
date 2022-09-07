@@ -9,7 +9,6 @@ class professor extends Controller
 {
     function create(Request $request) {
         $response = Http::post('http://localhost:3005/professor', [
-            'id' => $request->matricula,
             'name' => $request->nome,
             'email' => $request->email,
             'phone' => $request->telefone,
