@@ -16,8 +16,20 @@ use App\Http\Controllers\professor;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('home');
+
+Route::get('/cadastrar', function () {
+    return view('cadastrar');
+})->name('cadastrar');
+
+Route::get('/editar', function () {
+    return view('editar');
+})->name('editar');
+
+Route::get('/deletar', function () {
+    return view('deletar');
+})->name('deletar');
 
 Route::get('/professor/create', [professor::class, 'create']);
 
