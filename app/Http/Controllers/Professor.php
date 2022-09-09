@@ -27,12 +27,16 @@ class professor extends Controller
             $searchTerms = [];
 
             foreach ($search as $term) {
-                $searchTerm = ['name','ilike','%'.$term.'%'];
-                array_push($searchTerms,$searchTerm);
+                $professores = DB::table('professor')
+                ->where('name','ilike','%'.$term.'%')
+                ->get();
+                if($professores->isNotEmpty()) {
+                    $searchTerm = ['name','ilike','%'.$term.'%'];
+                    array_push($searchTerms,$searchTerm);
+                }
             }
 
             $professores = DB::table('professor')
-            ->select('*')
             ->where($searchTerms)
             ->get();
         } else {
