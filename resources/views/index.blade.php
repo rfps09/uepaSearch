@@ -20,8 +20,8 @@
     <div class="container">
         <div class="row justify-content-md-center mt-6">
             <div class="col col-lg-5">
-                <form>
-                    <input class="form-control border-secondary rounded-pill pr-5" type="search" placeholder="Busque por professores ou áreas de interesse" id="example-search-input2">
+                <form action="{{route('results')}}" method="GET">
+                    <input class="form-control border-secondary rounded-pill pr-5" type="search" placeholder="Busque por professores ou áreas de interesse" id="search" name="search">
                 </form>
             </div>
         </div>
@@ -40,12 +40,13 @@
         @foreach ($professores as $professor)
             <div class="row justify-content-md-center mt-3">
                 <div class="col col-lg-5 d-flex justify-content-between bg-white rounded p-3">
-                    <div>
+                    <div class="col-lg-6">
                         <h5>{{ $professor->name }}</h5>
                         <span class="text-muted">{{ $professor->email }}</span><br>
                         <span class="text-muted">{{ $professor->phone }}</span>
                     </div>
                     <div class="col col-lg-4 bg-primary rounded text-wrap text-white p-1">
+                        Especialidade:<br>
                         {{ $professor->especialidade }}
                     </div>
                     <div class="d-flex align-items-center">

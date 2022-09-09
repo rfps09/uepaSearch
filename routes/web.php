@@ -16,6 +16,7 @@ use App\Http\Controllers\Professor;
 */
 
 Route::get('/', [Professor::class, 'getProfessores'])->name('home');
+Route::get('/results', [Professor::class, 'getProfessores'])->name('results');
 
 Route::get('/cadastrar', function () {
     return view('cadastrar');

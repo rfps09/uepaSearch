@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use DB;
 
 class professor extends Controller
 {
@@ -18,10 +19,28 @@ class professor extends Controller
         return redirect(route('home'));
     }
 
-    function getProfessores() {
-        $response = Http::get('http://localhost:3005/professor');
+    function getProfessores(Request $request) {
+        $search = $request->query('search');
 
-        return view('index',['professores' => json_decode($response)]);
+        if($search) {
+            $search = explode(' ', $search);
+            $searchTerms = [];
+
+            foreach ($search as $term) {
+                $searchTerm = ['name','ilike','%'.$term.'%'];
+                array_push($searchTerms,$searchTerm);
+            }
+
+            $professores = DB::table('professor')
+            ->select('*')
+            ->where($searchTerms)
+            ->get();
+        } else {
+            $response = Http::get('http://localhost:3005/professor');
+            return view('index',['professores' => json_decode($response)]);
+        }
+
+        return view('index',['professores' => $professores]);
     }
 
     function getProfessor($id) {
