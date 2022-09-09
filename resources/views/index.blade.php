@@ -31,11 +31,13 @@
                 <a href="{{route('cadastrar')}}" type="button" class="btn btn-outline-primary">Cadastrar</a>
             </div>
         </div>
-        <div class="row justify-content-md-center mt-3">
-            <div class="col col-lg-5 d-flex justify-content-between">
-                <a href="/"><h6>Nome<i class="bi bi-arrow-up"></i></h6></a>
+        @if(Route::currentRouteName() == 'results')
+            <div class="row justify-content-md-center mt-3">
+                <div class="col col-lg-5 d-flex justify-content-between">
+                    <a href="{{ url()->previous() }}" class="text-decoration-none"><i class="bi bi-arrow-left"></i> <strong>Voltar</strong></a>
+                </div>
             </div>
-        </div>
+        @endif
 
         @foreach ($professores as $professor)
             <div class="row justify-content-md-center mt-3">
